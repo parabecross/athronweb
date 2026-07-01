@@ -9,8 +9,8 @@ export const SITE = {
   whatsappUrl: "https://wa.me/525514745677",
   whatsappPromoUrl:
     "https://wa.me/525514745677?text=Hola%2C%20quiero%20solicitar%20acceso%20promocional%20a%20ATHRON%20para%20mi%20box",
-  instagram: "@athron.mx",
-  instagramUrl: "https://instagram.com/athron.mx",
+  instagram: "@athronmx",
+  instagramUrl: "https://www.instagram.com/athronmx/",
 } as const;
 
 export const CTAS = {

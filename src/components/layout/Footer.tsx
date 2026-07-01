@@ -1,3 +1,4 @@
+import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { Logo } from "@/components/ui/Logo";
 import { SITE } from "@/lib/constants";
 import Link from "next/link";
@@ -56,8 +57,18 @@ export function Footer() {
         </div>
 
         <div className="mt-12 space-y-3 border-t border-white/5 pt-8">
-          <p className="text-xs text-muted-foreground/60">
-            {SITE.email} · {SITE.instagram}
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground/60">
+            <span>{SITE.email}</span>
+            <span className="text-muted-foreground/30">·</span>
+            <a
+              href={SITE.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-primary"
+            >
+              <InstagramIcon className="h-3.5 w-3.5" />
+              {SITE.instagram}
+            </a>
           </p>
           <p className="text-xs text-muted-foreground/60">{SITE.domain}</p>
           <p className="text-xs text-muted-foreground/70">

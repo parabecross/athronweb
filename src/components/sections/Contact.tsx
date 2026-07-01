@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { CTAS, SITE } from "@/lib/constants";
 import { motion } from "framer-motion";
@@ -41,8 +42,9 @@ export function Contact() {
               href={SITE.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-primary"
+              className="inline-flex items-center gap-2 transition-colors hover:text-primary"
             >
+              <InstagramIcon className="h-4 w-4" />
               {SITE.instagram}
             </a>
           </div>
