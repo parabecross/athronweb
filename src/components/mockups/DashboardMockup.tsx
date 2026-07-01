@@ -33,14 +33,6 @@ const icons: Record<string, React.ReactNode> = {
   ),
 };
 
-const positions = [
-  "top-8 -left-16",
-  "top-24 -right-12",
-  "bottom-32 -left-20",
-  "bottom-16 -right-16",
-  "top-1/2 -right-24",
-];
-
 function DashboardUI() {
   return (
     <div className="flex min-h-[360px] min-w-0 text-[11px] sm:min-h-[420px]">
@@ -145,40 +137,43 @@ function DashboardUI() {
 
 export function DashboardMockup() {
   return (
-    <div className="relative w-full min-w-0 overflow-hidden">
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-card shadow-glow-primary-lg">
-        <DashboardUI />
-      </div>
-
-      {/* Floating cards */}
-      {FLOATING_CARDS.map((card, i) => (
+    <div className="relative w-full min-w-0 overflow-visible px-2 py-8 sm:px-4 sm:py-10 lg:px-6 lg:py-12">
+      {/* Floating cards — solo desktop, dentro del área con padding */}
+      {FLOATING_CARDS.map((card) => (
         <motion.div
           key={card.label}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8 + card.delay, duration: 0.6 }}
-          className={cn(
-            "absolute z-10 hidden lg:block",
-            positions[i]
-          )}
+          initial={{ opacity: 0, scale: 0.9, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.6 + card.delay, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          className={cn("absolute z-20 hidden lg:block", card.position)}
         >
           <motion.div
-            animate={{ y: [0, -8, 0] }}
+            animate={{ y: [0, -6, 0] }}
             transition={{
-              duration: 4 + i * 0.5,
+              duration: 4 + card.delay * 2,
               repeat: Infinity,
               ease: "easeInOut",
               delay: card.delay,
             }}
-            className="glass-strong flex items-center gap-2.5 rounded-xl px-4 py-3 shadow-xl"
+            className={cn(
+              "flex items-center gap-2.5 rounded-xl border border-white/15 px-3.5 py-2.5",
+              "bg-[#141414]/90 shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_24px_hsl(14_100%_50%/0.12)]",
+              "backdrop-blur-xl"
+            )}
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
               {icons[card.icon]}
             </div>
-            <span className="text-sm font-medium text-white">{card.label}</span>
+            <span className="whitespace-nowrap text-sm font-medium text-white">
+              {card.label}
+            </span>
           </motion.div>
         </motion.div>
       ))}
+
+      <div className="relative z-0 overflow-hidden rounded-2xl border border-white/10 bg-card shadow-glow-primary-lg">
+        <DashboardUI />
+      </div>
     </div>
   );
 }

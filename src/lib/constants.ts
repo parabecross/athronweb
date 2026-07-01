@@ -286,9 +286,9 @@ export const PLANS = [
 ] as const;
 
 export const FLOATING_CARDS = [
-  { label: "Reservas", icon: "calendar", delay: 0 },
-  { label: "Membresías", icon: "card", delay: 0.15 },
-  { label: "Ranking", icon: "trophy", delay: 0.3 },
-  { label: "Asistencia", icon: "check", delay: 0.45 },
-  { label: "Dashboard", icon: "chart", delay: 0.6 },
+  { label: "Reservas", icon: "calendar", position: "top-4 left-3", delay: 0 },
+  { label: "Membresías", icon: "card", position: "top-16 right-3", delay: 0.15 },
+  { label: "Ranking", icon: "trophy", position: "bottom-28 left-2", delay: 0.3 },
+  { label: "Asistencia", icon: "check", position: "bottom-10 right-4", delay: 0.45 },
+  { label: "Dashboard", icon: "chart", position: "top-[38%] right-1", delay: 0.6 },
 ] as const;
