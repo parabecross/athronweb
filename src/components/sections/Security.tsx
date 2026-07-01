@@ -18,12 +18,12 @@ const securityPoints = [
   {
     title: "Infraestructura escalable",
     description:
-      "Arquitectura en la nube preparada para crecer contigo, desde un box hasta múltiples ubicaciones.",
+      "Arquitectura en la nube preparada para crecer con la operación de tu box.",
   },
   {
     title: "Panel Super Admin",
     description:
-      "Control centralizado para gestionar múltiples boxes con total independencia de datos.",
+      "Control centralizado para gestionar la plataforma con total independencia de datos por box.",
   },
 ];
 

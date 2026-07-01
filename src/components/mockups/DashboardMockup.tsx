@@ -120,9 +120,9 @@ function DashboardUI() {
             <p className="mb-3 font-medium text-white">Próximas clases</p>
             <div className="space-y-2">
               {[
-                { time: "07:00", name: "WOD AM", spots: "18/20" },
+                { time: "07:00", name: "Clase AM", spots: "18/20" },
                 { time: "09:00", name: "Open Gym", spots: "8/15" },
-                { time: "17:30", name: "WOD PM", spots: "20/20" },
+                { time: "17:30", name: "Clase PM", spots: "20/20" },
               ].map((cls) => (
                 <div
                   key={cls.time}
@@ -192,9 +192,9 @@ export function OwnerDashboard() {
       </div>
       <div className="mb-4 grid grid-cols-3 gap-2">
         {[
-          { label: "Ingresos", value: "$48,200" },
-          { label: "Retención", value: "94%" },
-          { label: "Nuevos", value: "12" },
+          { label: "Asistencia hoy", value: "89%", change: "+5%" },
+          { label: "Ocupación", value: "78%", change: "Esta semana" },
+          { label: "Nuevos atletas", value: "12", change: "Este mes" },
         ].map((s) => (
           <div key={s.label} className="rounded-lg border border-white/5 bg-white/[0.02] p-2">
             <p className="text-zinc-500">{s.label}</p>
@@ -203,7 +203,7 @@ export function OwnerDashboard() {
         ))}
       </div>
       <div className="rounded-lg border border-white/5 bg-white/[0.02] p-3">
-        <p className="mb-2 text-zinc-400">Métricas del mes</p>
+        <p className="mb-2 text-zinc-400">Actividad del box</p>
         <div className="flex h-20 items-end gap-1">
           {[40, 55, 48, 72, 65, 80, 75, 90, 85, 95, 88, 92].map((h, i) => (
             <div
@@ -223,11 +223,11 @@ export function CoachDashboard() {
     <div className="min-h-[320px] p-4 text-[10px]">
       <div className="mb-4">
         <span className="font-semibold text-white">Clase de hoy</span>
-        <p className="text-zinc-500">WOD — 17:30 · 20 atletas</p>
+        <p className="text-zinc-500">CrossFit — 17:30 · 20 atletas</p>
       </div>
       <div className="mb-3 rounded-lg border border-white/5 bg-white/[0.02] p-3">
-        <p className="mb-1 font-medium text-white">For Time</p>
-        <p className="text-zinc-400">21-15-9 Thrusters · Pull-ups</p>
+        <p className="mb-1 font-medium text-white">Clase funcional</p>
+        <p className="text-zinc-400">Capacidad: 20 · 18 reservas</p>
       </div>
       <p className="mb-2 text-zinc-500">Asistencia</p>
       <div className="space-y-1.5">
@@ -279,9 +279,9 @@ export function AthleteDashboard() {
       <p className="mb-2 text-zinc-500">Reservar clase</p>
       <div className="space-y-1.5">
         {[
-          { time: "07:00", name: "WOD AM", available: true },
+          { time: "07:00", name: "Clase AM", available: true },
           { time: "09:00", name: "Open Gym", available: true },
-          { time: "17:30", name: "WOD PM", available: false },
+          { time: "17:30", name: "Clase PM", available: false },
         ].map((cls) => (
           <div
             key={cls.time}
@@ -330,7 +330,7 @@ export function PWAScreen() {
       </div>
       <div className="mt-6 rounded-xl border border-white/5 bg-white/[0.02] p-3">
         <p className="text-zinc-500">Próxima clase</p>
-        <p className="mt-1 font-medium text-white">WOD — Hoy 17:30</p>
+        <p className="mt-1 font-medium text-white">Clase funcional — Hoy 17:30</p>
       </div>
     </div>
   );

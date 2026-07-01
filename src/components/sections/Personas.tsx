@@ -14,7 +14,7 @@ const personas = [
   {
     role: "Dueño del Box",
     description:
-      "Visión completa de tu negocio. Métricas, ingresos y control total desde un solo lugar.",
+      "Visión completa de tu box. Métricas operativas, ocupación y control total desde un solo lugar.",
     component: OwnerDashboard,
     accent: "from-orange-600/10 to-transparent",
   },

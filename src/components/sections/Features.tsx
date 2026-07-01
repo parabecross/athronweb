@@ -16,22 +16,22 @@ export function Features() {
           <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             Todo lo que tu box necesita hoy.
           </h2>
+          <p className="mt-4 text-muted-foreground">
+            Cada función resuelve un problema real de operación diaria.
+          </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature, i) => (
             <motion.div
-              key={feature}
+              key={feature.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.03 }}
             >
-              <GlassCard
-                hover
-                className="group flex h-full items-center gap-3 px-5 py-4"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+              <GlassCard hover className="h-full p-5">
+                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <svg
                     className="h-4 w-4"
                     fill="none"
@@ -46,7 +46,10 @@ export function Features() {
                     />
                   </svg>
                 </div>
-                <span className="text-sm text-zinc-300">{feature}</span>
+                <h3 className="mb-2 font-medium text-white">{feature.name}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {feature.benefit}
+                </p>
               </GlassCard>
             </motion.div>
           ))}

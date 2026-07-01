@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { SITE } from "@/lib/constants";
+import { CTAS, SITE } from "@/lib/constants";
 import { motion } from "framer-motion";
 
 export function FinalCTA() {
@@ -18,10 +18,21 @@ export function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-12 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-7xl"
+          className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
         >
           Tu box merece una plataforma a la altura de su comunidad.
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mx-auto mb-12 max-w-2xl text-lg text-muted-foreground"
+        >
+          Solicita acceso promocional a ATHRON Elite y prueba durante 30 días
+          cómo sería operar tu box con una plataforma profesional.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,11 +41,11 @@ export function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <Button href={SITE.whatsappUrl} size="lg">
-            Solicitar Demo
+          <Button href={SITE.whatsappPromoUrl} size="lg">
+            {CTAS.primary}
           </Button>
-          <Button href={SITE.whatsappUrl} variant="secondary" size="lg">
-            Hablar por WhatsApp
+          <Button href={SITE.whatsappPromoUrl} variant="secondary" size="lg">
+            {CTAS.secondary}
           </Button>
         </motion.div>
       </div>

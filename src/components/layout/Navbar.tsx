@@ -1,7 +1,7 @@
 "use client";
 
 import { Logo } from "@/components/ui/Logo";
-import { SITE } from "@/lib/constants";
+import { CTAS, SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Ecosistema", href: "#ecosistema" },
   { label: "Funciones", href: "#funciones" },
   { label: "Planes", href: "#planes" },
-  { label: "Seguridad", href: "#seguridad" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function Navbar() {
@@ -54,15 +54,15 @@ export function Navbar() {
             href="#planes"
             className="rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-white"
           >
-            Ver Planes
+            {CTAS.plans}
           </Link>
           <Link
-            href={SITE.whatsappUrl}
+            href={SITE.whatsappPromoUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="brand-gradient glow-primary rounded-full px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:opacity-90"
           >
-            Solicitar Demo
+            {CTAS.primary}
           </Link>
         </div>
 
@@ -107,12 +107,12 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              href={SITE.whatsappUrl}
+              href={SITE.whatsappPromoUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="brand-gradient mt-2 rounded-full px-5 py-3 text-center text-sm font-medium text-white"
             >
-              Solicitar Demo
+              {CTAS.primary}
             </Link>
           </div>
         </div>

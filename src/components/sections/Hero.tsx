@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/Button";
 import { DashboardMockup } from "@/components/mockups/DashboardMockup";
-import { HERO_CHECKS, SITE } from "@/lib/constants";
+import { CTAS, HERO_CHECKS, SITE } from "@/lib/constants";
 import { motion } from "framer-motion";
 
 export function Hero() {
@@ -21,29 +21,39 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <p className="mb-6 text-sm font-medium tracking-widest text-primary uppercase">
-              {SITE.name}
-            </p>
-            <h1 className="mb-8 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl">
+            <div className="mb-6 inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5">
+              <span className="text-xs font-medium tracking-wide text-primary sm:text-sm">
+                Acceso promocional para 5 boxes piloto
+              </span>
+            </div>
+
+            <h1 className="mb-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl">
               La plataforma que conecta todo tu{" "}
               <span className="brand-text">box.</span>
             </h1>
+
+            <p className="mb-4 text-sm font-medium text-orange-400/90">
+              Acceso promocional ATHRON Elite · 30 días para tu box · Cupo
+              limitado a 5 boxes piloto
+            </p>
+
             <p className="mb-10 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              ATHRON centraliza toda la operación de tu box para que puedas
-              enfocarte en lo más importante: entrenar, hacer crecer tu
-              comunidad y tomar mejores decisiones.
+              Solicita acceso promocional a ATHRON Elite durante 30 días y
+              descubre cómo puede transformar la operación de tu box.
             </p>
 
             <div className="mb-12 flex flex-wrap gap-4">
-              <Button href={SITE.whatsappUrl} size="lg">
-                Solicitar Demo
+              <Button href={SITE.whatsappPromoUrl} size="lg">
+                {CTAS.primary}
               </Button>
-              <Button href="#planes" variant="secondary" size="lg">
-                Ver Planes
+              <Button href={SITE.whatsappPromoUrl} variant="secondary" size="lg">
+                {CTAS.secondary}
               </Button>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:gap-8">
+            <LinkPlans />
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-8">
               {HERO_CHECKS.map((check, i) => (
                 <motion.div
                   key={check}
@@ -82,5 +92,16 @@ export function Hero() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function LinkPlans() {
+  return (
+    <a
+      href="#planes"
+      className="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-white hover:underline"
+    >
+      {CTAS.plans}
+    </a>
   );
 }
