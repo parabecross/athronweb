@@ -9,12 +9,7 @@ interface LogoProps {
 
 function LogoMark({ className, priority }: { className?: string; priority?: boolean }) {
   return (
-    <div
-      className={cn(
-        "relative h-9 w-9 shrink-0 overflow-hidden rounded-lg",
-        className
-      )}
-    >
+    <div className={cn("relative h-9 w-9 shrink-0", className)}>
       <Image
         src="/logo-full.png"
         alt=""
@@ -22,7 +17,7 @@ function LogoMark({ className, priority }: { className?: string; priority?: bool
         height={200}
         priority={priority}
         aria-hidden
-        className="absolute left-1/2 top-0 h-[220%] w-[220%] max-w-none -translate-x-1/2 object-cover object-top"
+        className="h-full w-full object-contain object-center"
       />
     </div>
   );
@@ -41,7 +36,7 @@ export function Logo({ variant = "wordmark", className, priority = false }: Logo
         width={320}
         height={320}
         priority={priority}
-        className={cn("h-auto w-44 sm:w-52", className)}
+        className={cn("h-auto w-36 object-contain sm:w-44", className)}
       />
     );
   }

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SITE } from "@/lib/constants";
-import { getSiteUrl, OG_IMAGE } from "@/lib/site-url";
+import { getOgImageUrl, getSiteUrl, OG_IMAGE } from "@/lib/site-url";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,6 +21,7 @@ const description =
   "ATHRON es una plataforma SaaS diseñada para boxes de CrossFit y entrenamiento funcional. Gestiona clases, reservas, membresías, atletas, coaches, asistencia, ranking y estadísticas desde un solo lugar.";
 
 const siteUrl = getSiteUrl();
+const ogImageUrl = getOgImageUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: OG_IMAGE.path,
+        url: ogImageUrl,
         width: OG_IMAGE.width,
         height: OG_IMAGE.height,
         alt: OG_IMAGE.alt,
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
     title,
     description,
     creator: SITE.instagram,
-    images: [OG_IMAGE.path],
+    images: [ogImageUrl],
   },
   alternates: {
     canonical: siteUrl,
@@ -103,7 +104,7 @@ const jsonLd = {
   operatingSystem: "Web",
   description,
   url: siteUrl,
-  image: `${siteUrl}${OG_IMAGE.path}`,
+  image: ogImageUrl,
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "MXN",
@@ -115,7 +116,7 @@ const jsonLd = {
     "@type": "Organization",
     name: "ATHRON",
     url: siteUrl,
-    logo: `${siteUrl}${OG_IMAGE.path}`,
+    logo: ogImageUrl,
     email: SITE.email,
     sameAs: [SITE.instagramUrl],
   },
@@ -129,11 +130,13 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}>
       <head>
-        <meta property="og:image" content={`${siteUrl}${OG_IMAGE.path}`} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:secure_url" content={ogImageUrl} />
         <meta property="og:image:width" content={String(OG_IMAGE.width)} />
         <meta property="og:image:height" content={String(OG_IMAGE.height)} />
         <meta property="og:image:type" content={OG_IMAGE.type} />
         <meta property="og:image:alt" content={OG_IMAGE.alt} />
+        <meta name="twitter:image" content={ogImageUrl} />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <script
           type="application/ld+json"
