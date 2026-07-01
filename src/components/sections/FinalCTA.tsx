@@ -6,8 +6,10 @@ import { motion } from "framer-motion";
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden py-32 lg:py-40">
-      <div className="glow-orb glow-orb-primary left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2" />
+    <section className="relative overflow-x-clip py-32 lg:py-40">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="glow-orb glow-orb-primary left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 sm:h-[600px] sm:w-[600px]" />
+      </div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(14_100%_50%/0.06),transparent_70%)]" />
 
       <div className="relative mx-auto max-w-5xl px-6 text-center lg:px-8">

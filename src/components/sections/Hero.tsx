@@ -7,13 +7,15 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
-      <div className="glow-orb glow-orb-primary -left-40 top-20 h-[600px] w-[600px]" />
-      <div className="glow-orb glow-orb-accent -right-40 top-1/3 h-[500px] w-[500px]" />
+    <section className="relative flex min-h-screen items-center overflow-x-clip pt-24">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="glow-orb glow-orb-primary -left-1/4 top-20 h-[400px] w-[400px] sm:-left-40 sm:h-[600px] sm:w-[600px]" />
+        <div className="glow-orb glow-orb-accent -right-1/4 top-1/3 h-[350px] w-[350px] sm:-right-40 sm:h-[500px] sm:w-[500px]" />
+      </div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(14_100%_50%/0.08),transparent_50%)]" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
-        <div className="max-w-xl">
+      <div className="relative mx-auto grid w-full min-w-0 max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
+        <div className="min-w-0 max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -22,7 +24,7 @@ export function Hero() {
             <p className="mb-6 text-sm font-medium tracking-widest text-primary uppercase">
               {SITE.name}
             </p>
-            <h1 className="mb-8 text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mb-8 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl">
               La plataforma que conecta todo tu{" "}
               <span className="brand-text">box.</span>
             </h1>
@@ -74,7 +76,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.95, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative lg:pl-8"
+          className="relative min-w-0 overflow-hidden lg:pl-8"
         >
           <DashboardMockup />
         </motion.div>

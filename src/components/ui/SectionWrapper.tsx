@@ -24,8 +24,8 @@ export function SectionWrapper({
     <section
       id={id}
       ref={ref}
-      className={cn(
-        "section-padding relative",
+        className={cn(
+        "section-padding relative overflow-x-clip",
         fullHeight && "min-h-screen flex items-center",
         className
       )}

@@ -43,7 +43,7 @@ const positions = [
 
 function DashboardUI() {
   return (
-    <div className="flex min-h-[420px] text-[11px]">
+    <div className="flex min-h-[360px] min-w-0 text-[11px] sm:min-h-[420px]">
       {/* Sidebar */}
       <aside className="hidden w-44 shrink-0 border-r border-white/5 bg-card p-4 sm:block">
         <div className="mb-6 flex items-center gap-2">
@@ -68,13 +68,13 @@ function DashboardUI() {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 p-5">
-        <div className="mb-5 flex items-center justify-between">
-          <div>
+      <main className="min-w-0 flex-1 overflow-hidden p-4 sm:p-5">
+        <div className="mb-5 flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="min-w-0">
             <p className="text-zinc-500">Buenos días</p>
-            <h3 className="text-base font-semibold text-white">CrossFit Centro</h3>
+            <h3 className="truncate text-base font-semibold text-white">CrossFit Centro</h3>
           </div>
-          <div className="rounded-full bg-orange-500/10 px-3 py-1 text-[10px] text-orange-400">
+          <div className="w-fit shrink-0 rounded-full bg-orange-500/10 px-3 py-1 text-[10px] text-orange-400">
             12 clases hoy
           </div>
         </div>
@@ -145,7 +145,7 @@ function DashboardUI() {
 
 export function DashboardMockup() {
   return (
-    <div className="relative">
+    <div className="relative w-full min-w-0 overflow-hidden">
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-card shadow-glow-primary-lg">
         <DashboardUI />
       </div>
@@ -308,7 +308,7 @@ export function AthleteDashboard() {
 
 export function PWAScreen() {
   return (
-    <div className="min-h-[480px] p-4 text-[11px]">
+    <div className="min-h-[420px] p-3 text-[11px] sm:p-4">
       <div className="mb-6 flex flex-col items-center pt-8 text-center">
         <Logo variant="mark" className="mb-3 h-14 w-14 rounded-2xl" />
         <p className="font-semibold tracking-wide text-white">ATHRON</p>

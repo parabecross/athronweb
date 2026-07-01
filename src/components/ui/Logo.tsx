@@ -47,9 +47,9 @@ export function Logo({ variant = "wordmark", className, priority = false }: Logo
   }
 
   return (
-    <div className={cn("flex items-center gap-2.5", className)}>
+    <div className={cn("flex min-w-0 items-center gap-2", className)}>
       <LogoMark priority={priority} />
-      <span className="text-lg font-semibold tracking-[0.12em] text-foreground">
+      <span className="truncate text-base font-semibold tracking-[0.1em] text-foreground sm:text-lg sm:tracking-[0.12em]">
         ATHRON
       </span>
     </div>

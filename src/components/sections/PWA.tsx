@@ -47,12 +47,13 @@ export function PWA() {
             </div>
           </div>
 
-          <div className="flex items-end justify-center gap-8">
+          <div className="flex w-full min-w-0 flex-col items-center gap-8 overflow-hidden sm:flex-row sm:items-end sm:justify-center lg:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="w-full max-w-[220px] sm:max-w-none"
             >
               <PhoneFrame variant="iphone">
                 <PWAScreen />
@@ -65,7 +66,7 @@ export function PWA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-8"
+              className="w-full max-w-[210px] sm:mb-8 sm:max-w-none"
             >
               <PhoneFrame variant="android">
                 <PWAScreen />

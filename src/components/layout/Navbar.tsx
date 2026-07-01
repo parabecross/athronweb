@@ -32,8 +32,8 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="group transition-opacity duration-300 hover:opacity-90">
+      <nav className="mx-auto flex w-full min-w-0 max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-8">
+        <Link href="/" className="group min-w-0 shrink transition-opacity duration-300 hover:opacity-90">
           <Logo variant="wordmark" priority />
         </Link>
 

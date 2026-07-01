@@ -64,8 +64,8 @@ export function Personas() {
                     {persona.description}
                   </p>
                 </div>
-                <div className="p-4 pt-0">
-                  <MacBookFrame className="scale-[0.95]">
+                <div className="overflow-hidden p-4 pt-0">
+                  <MacBookFrame className="w-full">
                     {(() => {
                       const View = persona.component;
                       return <View />;
