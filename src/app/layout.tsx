@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SITE } from "@/lib/constants";
+import { getSiteUrl, OG_IMAGE } from "@/lib/site-url";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,8 +20,10 @@ const title = "ATHRON | La plataforma que conecta todo tu box";
 const description =
   "ATHRON es una plataforma SaaS diseñada para boxes de CrossFit y entrenamiento funcional. Gestiona clases, reservas, membresías, atletas, coaches, asistencia, ranking y estadísticas desde un solo lugar.";
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(siteUrl),
   title,
   description,
   keywords: [
@@ -38,6 +41,13 @@ export const metadata: Metadata = {
   authors: [{ name: "ATHRON" }],
   creator: "ATHRON",
   publisher: "ATHRON",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   robots: {
     index: true,
     follow: true,
@@ -52,19 +62,29 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_MX",
-    url: SITE.url,
+    url: siteUrl,
     siteName: SITE.name,
     title,
     description,
+    images: [
+      {
+        url: OG_IMAGE.path,
+        width: OG_IMAGE.width,
+        height: OG_IMAGE.height,
+        alt: OG_IMAGE.alt,
+        type: OG_IMAGE.type,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
     creator: SITE.instagram,
+    images: [OG_IMAGE.path],
   },
   alternates: {
-    canonical: SITE.url,
+    canonical: siteUrl,
   },
   category: "technology",
 };
@@ -82,7 +102,8 @@ const jsonLd = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description,
-  url: SITE.url,
+  url: siteUrl,
+  image: `${siteUrl}${OG_IMAGE.path}`,
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "MXN",
@@ -93,7 +114,8 @@ const jsonLd = {
   provider: {
     "@type": "Organization",
     name: "ATHRON",
-    url: SITE.url,
+    url: siteUrl,
+    logo: `${siteUrl}${OG_IMAGE.path}`,
     email: SITE.email,
     sameAs: [SITE.instagramUrl],
   },
@@ -107,6 +129,12 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}>
       <head>
+        <meta property="og:image" content={`${siteUrl}${OG_IMAGE.path}`} />
+        <meta property="og:image:width" content={String(OG_IMAGE.width)} />
+        <meta property="og:image:height" content={String(OG_IMAGE.height)} />
+        <meta property="og:image:type" content={OG_IMAGE.type} />
+        <meta property="og:image:alt" content={OG_IMAGE.alt} />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
